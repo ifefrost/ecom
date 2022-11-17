@@ -12,9 +12,9 @@ $results = $pdo->query($query);
 <html>
     <head>
         <link rel="stylesheet" href="./assets/home.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
     <body class="container">
     <nav>
@@ -24,49 +24,53 @@ $results = $pdo->query($query);
   <li><a href="contacts.php">Contact</a></li>
   <li><a href="about.php">About</a></li>
   <li><a href="logout.php">Logout</a></li>
+  <!-- <img src="./assets/img/h1.jpg" alt="notfound"> -->
 </ul>
         </nav>
         <div class="container">
+        <div class="row">
   
 
         
-<table width="80%">
-    <thead>
-        <tr>
-            <th>ID</th>        
-            <th> PRoroduct Name</th>
-            <th>Product Description</th>
-            <th>Quantity Available</th>
-            <th>Price</th>
-            <th>Product Added by</th>
-            <th> Modify</th>
-        </tr>
-    </thead>
-    <tbody>
+
 
 
 <?php
                   
-                    while($row = $results->fetch()){
-                      
-                        $str_to_print="<tr><td>{$row['product_id']}</td>";
+                    while($row = $results->fetch())
+                    {
                         
-                        $str_to_print.="<td>{$row['product_name']}</td>";
-                        $str_to_print.="<td>{$row['product_description']}</td>";
-                        $str_to_print.="<td>{$row['product_qty']}</td>";
-                        $str_to_print.="<td>{$row['product_price']}</td>";
-                        $str_to_print.="<td>{$row['product_addedby']}</td>";
-                        $str_to_print.="<td>
-                        <a href='edit.php?product_id={$row['product_id']}'>Edit</a>
-                        <a href='delete.php?product_id={$row['product_id']}'>Delete</a>
-                        </td></tr>";
-                        echo $str_to_print;
+                       echo' 
+                       <div class="col-lg-4 col-md-6 col-sm-12 mb-5 mt-5">
+                       <div class="card">
+                       <div class="card-header">
+                       '.$row['product_name'].'
+                        </div>
+                        <img src='.$row['product_img'].' class="card-img-top" alt="notfound">
+                        <div class="card-body">
+                          <h5 class="card-title">
+                           
+                         Description '.$row['product_description'].' 
+                          
+                          
+                          
+                          </h5>
+                          <lable> QTY:
+                          </lable>
+                          <input type="number" value='.$row['product_qty'].'  />
+                          <lable> Price:
+                          </lable>
+                          <h5>'.$row['product_price'].' </h5>
+                        </div>
+                        <a href="addToCart()" class="btn btn-primary">Add To Cart</a>
+                      </div>
+                      </div>';
+                    
                     }
 
                     
                 ?>
-    </tbody>
-</table>
+ </div>
 
  </div>
     
