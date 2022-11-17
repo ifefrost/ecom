@@ -40,7 +40,7 @@
     function redirect(){
        if(!empty($_SESSION["UserId"])) 
        {
-           header("Location: welcome.php");
+           header("Location: home.php");
            exit();
        }
        
