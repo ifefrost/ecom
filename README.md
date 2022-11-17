@@ -7,10 +7,10 @@ Welcome to the page! STORM_Z here!
  
  ## Features
   +
- ##Tech
- +Php
- +Html5
- +css3
+ ## Tech
+ + Php
+ + Html5
+ + css3
  
  ## Installation
  +to add db use dbinit.php to initialize user database which hashes stored password
