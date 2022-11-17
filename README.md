@@ -6,7 +6,11 @@ Welcome to the page! STORM_Z here!
 
  
  ## Features
-  +
+  + This is ecome site build in php.
+  + session is used to store user credential
+  + uses bootstrap5
+  + This also can be used as template for ecome
+  
  ## Tech
  + Php
  + Html5
