@@ -17,6 +17,6 @@ Welcome to the page! STORM_Z here!
  + css3
  
  ## Installation
- +to add db use dbinit.php to initialize user database which hashes stored password
- +use user1@mail.com for mail and root as password to login
- +to add product database use productdbinit.php
+ + to add db use dbinit.php to initialize user database which hashes stored password
+ + use user1@mail.com for mail and root as password to login
+ + to add product database use productdbinit.php
