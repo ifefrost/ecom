@@ -1,7 +1,7 @@
 <?php
     require_once("functions.inc.php");
     redirect();
-    $error=[];
+    $errors=[];
     if($_SERVER["REQUEST_METHOD"]=="POST")
     {
         if(empty($_POST["email"])){
@@ -15,9 +15,10 @@
             if(login($_POST["email"],$_POST["password"]))
             {
                 $errors[]="<h3>Login Successfull</h3>";
+                redirect();
             }
             else{
-                $errors[]="<h3>Login Fail</h3>";
+                $errors[]="<h3>Login Fail</h3> <p>Invalid email or password</p>";
             }
         }
     }
@@ -40,7 +41,7 @@
         <?php
         if(isset($errors)){
             foreach($errors as $error)
-                echo '<script>alert($error)</script>';
+                echo $error;
         
             
         }
