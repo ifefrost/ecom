@@ -54,7 +54,38 @@
        
     }
     
-
+    function addToCart(){
+    
+        if(!empty($_GET['product_id']))
+        {
+            $product_id=(int)htmlspecialchars($_GET['product_id']);
+        }
+        else{
+            $user_id=null;
+            $error="<p>Error! Product id not found</p>";
+            echo $error;
+        }
+        if($error=null){
+            $query="select * from cart where product_id=?";
+            $stmt=mysqli_prepare($dbc,$query);
+            mysqli_stmt_bind_param($stmt,'i',$product_id);
+            $result = @mysqli_stmt_execute($stmt);
+            
+            if($result){
+            $result=mysqli_stmt_get_result($stmt);
+            $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+            $product_id=$row["product_id"];
+            $product_name=$row["product_name"];
+            $product_description=$row["product_description"];
+            $product_qty=$row["product_qty"];
+            $product_price=$row["product_price"];
+            $product_img=$row["product_img"];
+            }
+        }else{
+            echo $error;
+            exit();
+        }
+     }
 
 
 
