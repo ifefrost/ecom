@@ -88,7 +88,7 @@ p{
     <div class="card">
       <img src="./assets/img/team.webp" alt="Jane" style="width:100%">
       <div class="container">
-        <h2>Jane Doe</h2>
+        <h2>Dhairya</h2>
         <p class="title">CEO & Founder</p>
         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
         <p>jane@example.com</p>
@@ -101,7 +101,7 @@ p{
     <div class="card">
       <img src="./assets/img/team.webp" alt="Mike" style="width:100%">
       <div class="container">
-        <h2>Mike Ross</h2>
+        <h2>Bini</h2>
         <p class="title">Art Director</p>
         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
         <p>mike@example.com</p>
@@ -114,7 +114,20 @@ p{
     <div class="card">
       <img src="./assets/img/team.webp" alt="John" style="width:100%">
       <div class="container">
-        <h2>John Doe</h2>
+        <h2>Iffe</h2>
+        <p class="title">Designer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>john@example.com</p>
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="./assets/img/team.webp" alt="John" style="width:100%">
+      <div class="container">
+        <h2>Savan</h2>
         <p class="title">Designer</p>
         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
         <p>john@example.com</p>
