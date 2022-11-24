@@ -24,7 +24,29 @@ redirectIfNotLoggedIn();
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
 }
-
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+  }
+  @media (max-width: 800px) {
+  /* .row {
+    flex-direction: column-reverse; */
+  
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
 .contact-section {
   padding: 50px;
   text-align: center;
@@ -32,11 +54,6 @@ redirectIfNotLoggedIn();
   color: white;
 }
 
-
-
-.billBox{
-    border-style:solid;
-}
 
 .title {
   color: grey;
@@ -86,6 +103,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $emailErr = "Email is required";
   } else {
     $email = test_input($_POST["email"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format";
+      }
   }
     
   if (empty($_POST["address"])) {
@@ -101,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (empty($_POST["state"])) {
-    $stateErr = "Email is required";
+    $stateErr = "state is required";
   } else {
     $state = test_input($_POST["state"]);
   }
@@ -122,24 +142,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cardErr = "card number is required";
   } else {
     $card = test_input($_POST["card"]);
+    if(!preg_match ("/^[0-9]*$/", $card)){
+        $cardErr="number only for card";
+    }
+    if (strlen($card)!= 16) {  
+        $cardErr = "card no must contain 16 digits.";  
+        }  
+    
   }
 
-  if (empty($_POST["expm"])) {
+  if (empty($_POST["expmonth"])) {
     $expmErr = "month is required";
   } else {
-    $expm = test_input($_POST["expm"]);
+    $expm = test_input($_POST["expmonth"]);
+    if(!preg_match ("/^[0-9]*$/", $expm)){
+        $expmErr="number only for month";
+    }
+    if (strlen($expm)!= 2) {  
+        $expmErr = "Month  must contain 2 digits.";  
+        }  
   }
 
-  if (empty($_POST["expy"])) {
+  if (empty($_POST["expyear"])) {
     $expyErr = "year is required";
   } else {
-    $expy = test_input($_POST["expy"]);
+    $expy = test_input($_POST["expyear"]);
+    if(!preg_match ("/^[0-9]*$/", $expy)){
+        $expyErr="number only for year";
+    }
+    if (strlen($expy)!= 2) {  
+        $expyErr = "Year must contain 2 digits.";  
+        }  
   }
 
   if (empty($_POST["cvv"])) {
     $cvvErr = "cvv is required";
   } else {
     $cvv = test_input($_POST["cvv"]);
+    if(!preg_match ("/^[0-9]*$/", $cvv)){
+        $cvvErr="number only for cvv";
+    }
+    if (strlen($cvv)!= 3) {  
+        $cvvErr = "cvv must contain 3 digits.";  
+        }  
   }
 
 }
@@ -164,38 +209,27 @@ function test_input($data) {
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <div class="row">
           <div class="col-50"  >
-            <div class="billBox">
+            
             <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="name" name="name"><span class="error">* <?php echo $nameErr;?></span>
-             <br><br>
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label><?php echo $nameErr;?>
+            <input type="text" id="name" name="name">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label><?php echo $emailErr;?>
             <input type="text" id="email" name="email" >
-            <span class="error">* <?php echo $emailErr;?></span>
-             <br><br>
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label><?php echo $addressErr;?>
             <input type="text" id="adr" name="address" >
-            <span class="error">* <?php echo $addressErr;?></span>
-            <br><br>
-            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <label for="city"><i class="fa fa-institution"></i> City</label> <?php echo $cityErr;?>
             <input type="text" id="city" name="city" >
-            <span class="error">* <?php echo $cityErr;?></span>
-            <br><br>
                 <div class="row">
                  <div class="col-50">
-                <label for="state">State</label>
+                <label for="state">State</label> <?php echo $stateErr;?>
                 <input type="text" id="state" name="state">
-                <span class="error">* <?php echo $stateErr;?></span>
-                <br><br>
                 </div>
                 <div class="col-50">
-                <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" >
-                <span class="error">* <?php echo $zipErr;?></span>
-                <br><br>
+                <label for="zip">Zip</label><?php echo $zipErr;?>
+                <input type="text" id="zip" name="zip" >   
               </div>
             </div>
-          </div>
+          
         </div>
 
           <div class="col-50">
@@ -207,30 +241,21 @@ function test_input($data) {
               <i class="fa fa-cc-mastercard" style="color:red;"></i>
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" >
-            <span class="error">* <?php echo $nocErr;?></span>
-             <br><br>
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" >
-            <span class="error">* <?php echo $cardErr;?></span>
-            <br><br>
-            <label for="expmonth">Exp Month</label>
+            <label for="cname">Name on Card</label><?php echo $nocErr;?>
+            <input type="text" id="cname" name="noc" >
+            <label for="ccnum">Credit card number</label><?php echo $cardErr;?>
+            <input type="text" id="ccnum" name="card" >
+            <label for="expmonth">Exp Month</label><?php echo $expmErr;?>
             <input type="text" id="expmonth" name="expmonth" >
-            <span class="error">* <?php echo $expmErr;?></span>
-                <br><br>
             <div class="row">
               <div class="col-50">
-                <label for="expyear">Exp Year</label>
+                <label for="expyear">Exp Year</label><?php echo $expyErr;?>
                 <input type="text" id="expyear" name="expyear" >
-                <span class="error">* <?php echo $expyErr;?></span>
-                <br><br>
+                
               </div>
               <div class="col-50">
-                <label for="cvv">CVV</label>
+                <label for="cvv">CVV</label><?php echo $cvvErr;?>
                 <input type="text" id="cvv" name="cvv" >
-                <span class="error">* <?php echo $cvvErr;?></span>
-                    <br><br>
               </div>
             </div>
           </div>
@@ -238,8 +263,8 @@ function test_input($data) {
         </div>
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label><br>
-        <input type="submit" name="submit" value="Continue to checkout" class="btn">
+        </label>
+        <input type="submit" name="submit" value="Continue to checkout" class="button">
 
         </form>
         
