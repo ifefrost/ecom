@@ -40,4 +40,7 @@ input[type=text],input[type=password], select {
   input[type=submit]:hover {
     background-color: #48cd4e;
   }
+  .captcha{
+    padding-left: 50px;
+  }
   

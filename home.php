@@ -17,14 +17,14 @@ $results = $pdo->query($query);
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
     <body class="container">
-    <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
-        <ul class="navbar-nav">
-  <li class="nav-item"><a class="nav-link display-2 active" href="home.php">Home</a></li>
-  <li class="nav-item"><a class="nav-link" href="products.php">Product</a></li>
-  <li class="nav-item"><a class="nav-link" href="contacts.php">Contact</a></li>
-  <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-  <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
-  <!-- <img src="./assets/img/h1.jpg" alt="notfound"> -->
+    <nav>
+        <ul>
+  <li><a href="home.php">Home</a></li>
+  <li><a href="products.php">Product</a></li>
+  <li><a href="contacts.php">Contact</a></li>
+  <li><a href="cart.php">Cart</a></li>
+  <li><a href="about.php">About</a></li>
+  <li><a href="logout.php">Logout</a></li>
 </ul>
         </nav>
         <div class="container">

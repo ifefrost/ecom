@@ -22,6 +22,7 @@ $results = $pdo->query($query);
   <li><a href="home.php">Home</a></li>
   <li><a href="products.php">Product</a></li>
   <li><a href="contacts.php">Contact</a></li>
+  <li><a href="cart.php">Cart</a></li>
   <li><a href="about.php">About</a></li>
   <li><a href="logout.php">Logout</a></li>
 </ul>
