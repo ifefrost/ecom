@@ -19,4 +19,4 @@ Welcome to the page! STORM_Z [![twitter](https://img.shields.io/badge/twitter-1D
  ## Installation
  + to add db use dbinit.php to initialize user database which hashes stored password
  + use user1@mail.com for mail and root as password to login
- + to add product database use productdbinit.php
+
