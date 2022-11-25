@@ -58,6 +58,19 @@
                 )
                 
                 ");
+
+                $pdo->query("drop table if exists cart");
+                
+                $pdo->query("create table product(
+                    product_id mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+                    product_name varchar(100) NOT NULL,
+                    product_description varchar(255) NOT NULL,
+                    product_qty int(20) NOT NULL,
+                    product_price decimal(10,2) NOT NULL,
+                    PRIMARY KEY(product_id)
+                )
+                
+                ");
                 
                 $pdo->query("insert into product (product_id,product_name,product_description,product_qty,product_price,product_img)
                 values
