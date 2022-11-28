@@ -6,7 +6,7 @@ redirectIfNotLoggedIn();
 ?>
 <!doctype html>
 <html>
-  <?php include('nav.php'); ?>
+  <?php pageheader('Checkout') ?>
   <style>
     .column {
       float: left;

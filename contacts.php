@@ -6,7 +6,7 @@ redirectIfNotLoggedIn();
 ?>
 <!doctype html>
 <html>
-<?php include('nav.php'); ?>
+<?php pageheader('About') ?>
         <style>
 .column {
   float: left;
@@ -60,7 +60,7 @@ p{
   }
 }
             </style>
-        
+        <body class="container">
         <div class="contact-section">
   <h1>Contact Us Page</h1>
   <p>Some text about who we are and what we do.</p>
@@ -123,7 +123,7 @@ p{
 </div>
 
 
-    
+    <?php footer() ?>
     </body>
 </html>
 

@@ -1,81 +1,45 @@
 <?php
-require('db_conn.php');
-require_once("functions.inc.php");
-redirectIfNotLoggedIn();
+  require('db_conn.php');
+  require_once("functions.inc.php");
+  redirectIfNotLoggedIn(); 
 
-
-if($_SERVER['REQUEST_METHOD']=='POST')
-{
- addToCart();
-  
-} 
-
-
-
-
-
-
-$query = 'SELECT * FROM homeproduct'; // replace with paramertized query using mysqli_stmt_bind_param for asynchronous work task
-$results = $pdo->query($query);
+  $query = 'SELECT * FROM products'; // replace with paramertized query using mysqli_stmt_bind_param for asynchronous work task
+  $results = $pdo->query($query);
 ?>
-<!doctype html>
+
+<!DOCTYPE html>
 <html>
-    <?php include('nav.php'); ?>
-    <body class="container">
-   
-        <div class="container">
-        <div class="row">
-  
-
-        
-
-
-
-<?php
-require_once("functions.inc.php");
-
-                    while($row = $results->fetch())
-                    {
-                        
-                       echo' 
-                       <div class="col-lg-4 col-md-6 col-sm-12 mb-5 mt-5">
-                       <form  method="POST"  action="addToCart.php">
-   
-                       <div class="card">
-                      
-                       <div class="card-header" name="product_name">
-                      <input type="text"  name="product_name" value='.$row['product_name'].' />
-                        </div>
-                        <img src='.$row['product_img'].' class="card-img-top" name="product_img" alt="notfound">
-                        <div class="card-body">Description:
-                          <input class="card-title" name="product_description"
-                           
-                         value='.$row['product_description'].' 
-                          
-                          
-                          
-                          />
-                          <lable> QTY:
-                          </lable>
-                          <input type="number" name="product_qty" value='.$row['product_qty'].'  />
-                         <br> <lable> Price:
-                          </lable>
-                          <input type="number" name="product_price" value='.$row['product_price'].' />
-                        </div>
-                        <input type="submit" value="Add to Cart">
-                      </div>
-                      </form>
-                      </div>
-                    ';
-                    
-                    }
-
-                    
-                ?>
- </div>
-
- </div>
-    
-    </body>
+  <?php pageheader('Home') ?>
+  <body class="container">
+    <div class="container">
+      <div class="row">
+        <?php
+          while($row = $results->fetch())
+          {   
+            echo' 
+              <div class="col-lg-4 col-md-6 col-sm-12 mb-5 mt-5">
+                <div class="card">
+                  <img src='.$row['product_img'].' class="card-img-top" name="product_img" alt="notfound">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      '.$row['product_name'].'
+                    </h5>
+                    <p class="card-text">
+                      Description: '.$row['product_description'].' 
+                    </p>
+                    <p class="card-text">
+                      Price: '.$row['product_price'].'
+                    </p>
+                  </div>
+                  <a href="product.php?id='.$row['product_id'].'" class="btn btn-primary">View Product</a>
+                </div>
+              </div>
+            ';
+          }
+        ?>
+      </div>
+    </div>
+    <?php footer() ?>
+  </body>
 </html>
 

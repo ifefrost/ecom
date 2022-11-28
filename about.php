@@ -6,7 +6,7 @@ redirectIfNotLoggedIn();
 ?>
 <!doctype html>
 <html>
-<?php include('nav.php'); ?>
+<?php pageheader('About') ?>
        <style>
   
 
@@ -109,7 +109,7 @@ p{
     </div>
   </div>
 </div>
-
+    <?php footer() ?>
     </body>
 </html>
 
