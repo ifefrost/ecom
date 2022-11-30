@@ -84,9 +84,6 @@ nav > ul {
 .button:hover {
   background-color: #555;
 }
-p{
-    font-size:10px;
-}
 @media screen and (max-width: 650px) {
   .column {
     width: 80%;
