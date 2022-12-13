@@ -35,6 +35,9 @@ class PDF extends FPDF
     }
 }
 
+$cart = fetchCart();
+$userdetails = getUserDetails();
+
 $pdf = new PDF('L');
 $pdf->SetTitle("Purchase Invoice");
 $pdf->AddPage();
@@ -56,7 +59,7 @@ $date = date('Y/m/d');
 $pdf-> Cell(30, 10, $date, 0, 0, 'L');
 $pdf->Cell(190);
 $pdf->SetFont('Helvetica', '', 10);
-$pdf-> Cell(50, 10, 'John Doe', 0, 0, 'R');
+$pdf-> Cell(50, 10, $userdetails[0]['FirstName']." ".$userdetails[0]['LastName'], 0, 0, 'R');
 $pdf->Ln(7);
 $pdf->SetFont('Helvetica', 'B', 10);
 $pdf-> Cell(15, 10, 'Payment Due:', 0, 0, 'L');
@@ -68,7 +71,7 @@ $pdf-> Cell(60, 10, '1234 Street, City, State, Country', 0, 0, 'R');
 $pdf->Ln(7);
 $pdf->Cell(230);
 $pdf->SetFont('Helvetica', '', 10);
-$pdf-> Cell(50, 10, 'johndoe@gmail.com', 0, 0, 'R');
+$pdf-> Cell(50, 10, $userdetails[0]['Email'], 0, 0, 'R');
 $pdf->Ln(15);
 $pdf->SetFillColor(120,180,120);
 $pdf->SetFont('Helvetica', 'B', 10);
@@ -78,32 +81,28 @@ $pdf->Cell(50, 10, 'QUANTITY', 1, 0, 'R', true);
 $pdf->Cell(50, 10, 'SUBTOTAL', 1, 0, 'R', true);
 
 // At this point i will use a foreach loop to go through items in the cart, calculate the total price, total quantity and display them in the invoice
+foreach($cart as $item){
+    $pdf->Ln(10);
+    $pdf->SetFont('Helvetica', '', 10);
+    $pdf->Cell(130, 10, $item['product_name'], 1, 0, 'L');
+    $pdf->Cell(50, 10, '$'.' '.$item['product_price'], 1, 0, 'R');
+    $pdf->Cell(50, 10, $item['cart_qty'], 1, 0, 'R');
+    $pdf->Cell(50, 10, '$'.' '.$item['product_price']*$item['cart_qty'], 1, 0, 'R');
+}
 
 $pdf->Ln(10);
-$pdf->SetFont('Helvetica', '', 10);
-$pdf->Cell(130, 10, 'Product Name', 1, 0, 'L');
-$pdf->Cell(50, 10, '$'.' 100.00', 1, 0, 'R');
-$pdf->Cell(50, 10, '2', 1, 0, 'R');
-$pdf->Cell(50, 10, '$'.' 200.00', 1, 0, 'R');
-$pdf->Ln(10);
-$pdf->Cell(130, 10, 'Product Name', 1, 0, 'L');
-$pdf->Cell(50, 10, '$'.' 100.00', 1, 0, 'R');
-$pdf->Cell(50, 10, '1', 1, 0, 'R');
-$pdf->Cell(50, 10, '$'.' 100.00', 1, 0, 'R');
-$pdf->Ln(10);
-
 $pdf->SetFont('Helvetica', 'B', 10);
 $pdf->Cell(180);
 $pdf->Cell(50, 10, 'SUBTOTAL', 1, 0, 'R', true);
-$pdf->Cell(50, 10, '$'.' 300.00', 1, 0, 'R', true);
+$pdf->Cell(50, 10, '$ '.fetchCartTotalPrice()["total"], 1, 0, 'R', true);
 $pdf->Ln(10);
 $pdf->Cell(180);
 $pdf->Cell(50, 10, 'TAXES (13%)', 1, 0, 'R', true);
-$pdf->Cell(50, 10, '$'.'39.00', 1, 0, 'R', true);
+$pdf->Cell(50, 10, '$ '.fetchCartTotalPrice()["total"]*0.13, 1, 0, 'R', true);
 $pdf->Ln(10);
 $pdf->Cell(180);
 $pdf->Cell(50, 10, 'TOTAL', 1, 0, 'R', true);
-$pdf->Cell(50, 10, '$'.' 339.00', 1, 0, 'R', true);
+$pdf->Cell(50, 10, '$ '.fetchCartTotalPrice()["total"]*1.13, 1, 0, 'R', true);
 $pdf->Ln(10);
 
 
