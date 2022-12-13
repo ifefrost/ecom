@@ -12,9 +12,17 @@
         }
         else
         {
-            if(login($_POST["email"],$_POST["password"]))
-            {
-                $errors[]="<h3>Login Successfull</h3>";
+            if(!empty($_POST["email"])){
+                $hash=password_hash($_POST["password"],PASSWORD_DEFAULT); 
+                $firstname=$_POST["firstname"];
+                $lastname=$_POST["lastname"];
+                $email=$_POST["email"];
+                
+                echo "Password 1: $hash";
+                $pdo->query("insert into user (Email,FirstName,LastName,PasswordHash)
+                values
+                ('$email','$firstname','$lastname','$hash')");
+                $errors[]="<h3>Registeer Successfull</h3>";
                 redirect();
             }
             else{
@@ -48,14 +56,16 @@ else {
     </script>
 </head>
     <body class="container">
-        <h1>Login</h1>
-        <form method="POST" onsubmit="return validate_form()">
+        <h1>Registration</h1>
+        <form method="POST" >
+        <input type="text" name="firstname" placeholder="firstname" />
+        <input type="text" name="lastname" placeholder="lastname" />
+
             <input type="text" name="email" placeholder="email" />
-             <input type="password" name="password" placeholder="password" />
-             <div class="g-recaptcha" style="padding: 14px;" data-sitekey="6LdwuDAjAAAAAC3Q51x28mHwc9M_KvpFp_8MdyzH" require></div>
+             <input type="password" name="password" placeholder="password" /> 
             <input type="submit" value="submit" />
         </form>
-        <li><a href='register.php'>Register Now</a></li>
+        <li><a href='login.php'>Login Now</a></li>
         <?php
         if(isset($errors)){
             foreach($errors as $error)
