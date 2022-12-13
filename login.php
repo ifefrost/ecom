@@ -14,8 +14,18 @@
         {
             if(login($_POST["email"],$_POST["password"]))
             {
-                $errors[]="<h3>Login Successfull</h3>";
-                redirect();
+                echo '$_POST["email"]';
+                if($_POST["email"] == "user1@mail.com")
+                {
+                    $errors[]="<h3>Login Successfull</h3>";
+                      header("Location: admin.php");
+           exit();
+
+                }else{
+                    $errors[]="<h3>Login Successfull</h3>";
+                    redirect();
+                }
+        
             }
             else{
                 $errors[]="<h3>Login Fail</h3> <p>Invalid email or password</p>";
