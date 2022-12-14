@@ -100,6 +100,9 @@ redirectIfNotLoggedIn();
 .contact label i ~ input {
     padding-left: 45px !important;
 }
+.form-container{
+    background-color:  #3670b3  ;
+}
 .contact .responses {
     padding: 15px;
     margin: 0;
@@ -114,23 +117,29 @@ p{
   }
 }
             </style>
-        <body class="container">
-        <div class="contact-section">
-  
-  <div class="form-container">
-  <div class="col-50"  >
-  <!DOCTYPE html>
-<html lang="en">
-	<head>
+            	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,minimum-scale=1">
 		<title>Contact Form</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-		<link rel="stylesheet" href="style.css">
+	
 	</head>
-	<body>
-		<form class="contact" method="post" action="submit.php">
-			<h1>Contact Form</h1>
+
+        <body class="container">
+        <div class="contact-section">
+       
+  <h1>Contact Us Page</h1>
+  <p>Some text about who we are and what we do.</p>
+  <p>Resize the browser window to see that this page is responsive by the way.</p>
+</div>
+</div>
+  <div class="form-container">
+  <div class="col-50 m-5 p-5"  >
+
+
+ 
+		<form class="contact p-5" method="post" action="submit.php">
+			
 			<div class="fields">
 				<label for="email">
 					<i class="fas fa-envelope"></i>
