@@ -1,6 +1,6 @@
 <?php
 require("submit.php");
-require_once("functions.inc.php");
+require_once("./db/functions.inc.php");
 redirectIfNotLoggedIn();
 
 ?>

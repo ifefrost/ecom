@@ -1,6 +1,6 @@
 <?php
-require('db_conn.php');
-require_once("functions.inc.php");
+require('./db/db_conn.php');
+require_once("./db/functions.inc.php");
 redirectIfNotLoggedIn();
 
 if($_SERVER['REQUEST_METHOD']=='POST')

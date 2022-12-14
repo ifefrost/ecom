@@ -1,6 +1,6 @@
 <?php 
-    require("db_conn.php");
-    require_once("functions.inc.php");
+    require("./db/db_conn.php");
+    require_once("./db/functions.inc.php");
     $error = null;
     if(!empty($_GET['product_id']))
     {

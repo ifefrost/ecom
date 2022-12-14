@@ -17,7 +17,8 @@
                 Email varchar(50) not null,
                 FirstName varchar(50) not null,
                 LastName varchar(50) not null,
-                PasswordHash varchar(256) not null
+                PasswordHash varchar(256) not null,
+                admin boolean not null default false
                 )
                 
                 ");
@@ -62,13 +63,10 @@
                 
                 echo "Password 1: $hash";
                 
-                $hash=password_hash("root",PASSWORD_DEFAULT); 
-                
-                echo "Password 2: $hash";
-                
-                $pdo->query("insert into user (Email,FirstName,LastName,PasswordHash)
+                $pdo->query("insert into user (Email,FirstName,LastName,PasswordHash,admin)
                 values
-                ('user1@mail.com','User','One','$hash')");
+                ('user1@mail.com','User','One','$hash', true),
+                ('user2@mail.com','User','Two','$hash', false)");
                 
                 echo "<h3>Database Initialized</h3>";
             }

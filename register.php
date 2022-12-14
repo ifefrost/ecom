@@ -1,5 +1,5 @@
 <?php
-    require_once("functions.inc.php");
+    require_once("./db/functions.inc.php");
     redirect();
     $errors=[];
     if($_SERVER["REQUEST_METHOD"]=="POST")
@@ -18,11 +18,11 @@
                 $lastname=$_POST["lastname"];
                 $email=$_POST["email"];
                 
-                echo "Password 1: $hash";
                 $pdo->query("insert into user (Email,FirstName,LastName,PasswordHash)
                 values
-                ('$email','$firstname','$lastname','$hash')");
-                $errors[]="<h3>Registeer Successfull</h3>";
+                (?, ?, ?, ?)",[$email,$firstname,$lastname,$hash])
+                or die("Failed to insert");
+                $errors[]="<h3>Registered Successfully</h3>";
                 redirect();
             }
             else{

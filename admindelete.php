@@ -1,5 +1,5 @@
 <?php
-    require('db_conn.php');
+    require('./db/db_conn.php');
 
     $errors=[];
     $clean_values=$_GET;

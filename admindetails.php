@@ -1,6 +1,6 @@
 <?php
-  require('db_conn.php');
-  require_once("functions.inc.php");
+  require('./db/db_conn.php');
+  require_once("./db/functions.inc.php");
     $query = 'SELECT * FROM products'; // replace with paramertized query using mysqli_stmt_bind_param for asynchronous work task
     $results = $pdo->query($query);
 ?>

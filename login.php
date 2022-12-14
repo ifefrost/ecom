@@ -1,5 +1,5 @@
 <?php
-    require_once("functions.inc.php");
+    require_once("./db/functions.inc.php");
     redirect();
     $errors=[];
     if($_SERVER["REQUEST_METHOD"]=="POST")

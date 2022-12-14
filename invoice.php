@@ -1,7 +1,7 @@
 <?php
-require('db_conn.php');
-require_once("functions.inc.php");
-require_once("assets/fpdf/fpdf.php");
+require('./db/db_conn.php');
+require_once("./db/functions.inc.php");
+require_once("./assets/fpdf/fpdf.php");
 redirectIfNotLoggedIn();
 
 class PDF extends FPDF
