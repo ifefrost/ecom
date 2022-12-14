@@ -9,13 +9,20 @@ redirectIfNotLoggedIn();
 <?php pageheader('About') ?>
        <style>
   
-
+.about-content{
+  margin:1rem;
+  width: 96;
+  letter-spacing: 2px;
+  font-family: sans-serif;
+    font-size: 1.1em;
+}
 .column {
   float: left;
   width: 30.0%;
   margin-bottom: 16px;
   padding: 0 8px;
 }
+
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -63,21 +70,36 @@ p{
     <!-- <h1>About</h1> -->
  
  <div class="about-section">
-  <h1>About Us Page</h1>
-  <p>Some text about who we are and what we do.</p>
-  <p>Resize the browser window to see that this page is responsive by the way.</p>
+  <h1>About Us</h1>
+  <p>Unlimited fast, FREE Shiping for everyone on your business account and more business benefits</p>
+</div>
+<br>
+<div>
+<p class="about-content">
+ Founded in 2007, MUO has grown into one of the largest online technology publications on the web.
+ Our expertise in all things tech has resulted in millions of visitors every month and hundreds of thousands of fans on social media.
+ We believe that technology is only as useful as the one who uses it.
+ Our aim is to equip readers like you with the know-how to make 
+ the most of today's tech, explained in simple terms that anyone can understand. 
+ We also encourage readers to use tech in productive and meaningful ways.
+</p>
+<p class="about-content"> 
+We're tech enthusiasts on a mission to teach the world how to use and understand the tech in their lives.
+ Phones, laptops, gadgets, apps, software, websites,services. 
+ if it can make your life better, we'll show you all the tips,tricks, and techniques you need to know to get the most out of what you have.
+</p>
 </div>
 
-<h2 style="text-align:center">Our Team</h2>
+<h2 style="text-align:center">Our Branches</h2>
 <div class="row">
   <div class="column">
     <div class="card">
       <img src="./assets/img/team.webp" alt="Jane" style="width:100%">
       <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>jane@example.com</p>
+        <h2>ecom</h2>
+        <p class="title">Gulph</p>
+        <p>Variety of Electronic Gadgets available here</p>
+        <p>e_electronics@example.com</p>
   
       </div>
     </div>
@@ -87,10 +109,10 @@ p{
     <div class="card">
       <img src="./assets/img/team.webp" alt="Mike" style="width:100%">
       <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>mike@example.com</p>
+        <h2>ecom</h2>
+        <p class="title">Waterloo</p>
+        <p>Variety of Laptops available here</p>
+        <p>elaptops@example.com</p>
       
       </div>
     </div>
@@ -100,10 +122,10 @@ p{
     <div class="card">
       <img src="./assets/img/team.webp" alt="John" style="width:100%">
       <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>john@example.com</p>
+        <h2>ecom</h2>
+        <p class="title">Kitchner</p>
+        <p>Variety of Mobile Phones available here</p>
+        <p>emob@example.com</p>
       
       </div>
     </div>
@@ -112,4 +134,3 @@ p{
     <?php footer() ?>
     </body>
 </html>
-

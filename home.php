@@ -28,7 +28,7 @@
                       Description: '.$row['product_description'].' 
                     </p>
                     <p class="card-text">
-                      Price: '.$row['product_price'].'
+                      Price:&dollar; '.$row['product_price'].' 
                     </p>
                   </div>
                   <a href="product.php?id='.$row['product_id'].'" class="btn btn-primary">View Product</a>
