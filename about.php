@@ -96,10 +96,10 @@ We're tech enthusiasts on a mission to teach the world how to use and understand
     <div class="card">
       <img src="./assets/img/team.webp" alt="Jane" style="width:100%">
       <div class="container">
-        <h2>ecom</h2>
+        <h2>Ecom</h2>
         <p class="title">Gulph</p>
         <p>Variety of Electronic Gadgets available here</p>
-        <p>e_electronics@example.com</p>
+        <p><a href = "mailto: jayarya017@example.com">Send Email</a></p>
   
       </div>
     </div>
@@ -109,10 +109,11 @@ We're tech enthusiasts on a mission to teach the world how to use and understand
     <div class="card">
       <img src="./assets/img/team.webp" alt="Mike" style="width:100%">
       <div class="container">
-        <h2>ecom</h2>
+        <h2>Ecom</h2>
         <p class="title">Waterloo</p>
         <p>Variety of Laptops available here</p>
-        <p>elaptops@example.com</p>
+        <p><a href = "mailto: jayarya017@example.com">Send Email</a></p>
+
       
       </div>
     </div>
@@ -122,10 +123,11 @@ We're tech enthusiasts on a mission to teach the world how to use and understand
     <div class="card">
       <img src="./assets/img/team.webp" alt="John" style="width:100%">
       <div class="container">
-        <h2>ecom</h2>
+        <h2>Ecom</h2>
         <p class="title">Kitchner</p>
         <p>Variety of Mobile Phones available here</p>
-        <p>emob@example.com</p>
+        <p><a href = "mailto: jayarya017@example.com">Send Email</a></p>
+
       
       </div>
     </div>
