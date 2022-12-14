@@ -60,7 +60,7 @@ $results = fetchCart();
     </div>
     <div class="margin" style="margin: 5rem;">
       <?php
-        echo '<h5>Total Amount- &dollar;'.fetchCartTotalPrice()["total"].' </h5>';
+        echo '<h5>Total Amount- &dollar;'.(fetchCartTotalPrice()["total"]).' </h5>';
       ?>
       <form action="checkout.php">
         <input type="submit" value="Checkout">
