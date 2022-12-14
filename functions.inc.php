@@ -150,7 +150,7 @@
         
                     
                             <ul>
-                            <a><img src='./assets/img/Logo.png' alt='Logo' width='100'></a>
+                            <a href='home.php'><img src='./assets/img/Logo.png' alt='Logo' width='100'></a>
                                 <li><a href='home.php'>Home</a></li>
                                 <li><a href='cart.php'>Cart <i class='fas fa-shopping-cart'></i></a></li>
                                 <li><a href='products.php'>Product</a></li>

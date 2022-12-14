@@ -5,6 +5,38 @@
 
   $query = 'SELECT * FROM products'; // replace with paramertized query using mysqli_stmt_bind_param for asynchronous work task
   $results = $pdo->query($query);
+ 
+$curl = curl_init();
+
+curl_setopt_array($curl, [
+	CURLOPT_URL => "https://quotes15.p.rapidapi.com/quotes/random/",
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_FOLLOWLOCATION => true,
+	CURLOPT_ENCODING => "",
+	CURLOPT_MAXREDIRS => 10,
+	CURLOPT_TIMEOUT => 30,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "GET",
+	CURLOPT_HTTPHEADER => [
+		"X-RapidAPI-Host: quotes15.p.rapidapi.com",
+		"X-RapidAPI-Key: 83896e3ec8msh72aeddc177b6912p1ef602jsnbb768a8686c0"
+	],
+]);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+	echo "cURL Error #:" . $err;
+} else {
+ $response=(json_decode($response));
+
+  echo 'quote of the day:';
+	echo $response->{'content'};
+  echo gettype($response);
+}
 ?>
 
 <!DOCTYPE html>
