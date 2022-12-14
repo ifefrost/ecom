@@ -191,7 +191,7 @@ function test_input($data) {
 }
 ?>
 
-        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form method="POST" action="invoice.php">
         <div class="row">
           <div class="col-50"  >
             
