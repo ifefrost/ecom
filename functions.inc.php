@@ -52,6 +52,15 @@
        }
        
     }
+
+    function getUserDetails(){
+        global $pdo;
+        $query="SELECT * FROM user WHERE UserId = ?";
+        $stmt=$pdo->prepare($query);
+        $stmt->execute([$_SESSION['UserId']]);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
     
     function addToCart(array $request){
         if(isset($request['product_id'], $request['cart_qty']))
