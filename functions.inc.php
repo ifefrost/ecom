@@ -65,15 +65,14 @@
     function addToCart(array $request){
         if(isset($request['product_id'], $request['cart_qty']))
         {
-            echo "product id: ".$request['product_id']." product qty: ".$request['cart_qty'];
             $product = (int)htmlspecialchars($request['product_id']);
             $quantity = (int)htmlspecialchars($request['cart_qty']);
 
             global $pdo;
 
-            $query="INSERT INTO cart (product_id, cart_qty, userid) VALUES (?, ?, ?)";
+            $query="INSERT INTO cart (product_id, cart_qty, userid) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE cart_qty = cart_qty + ?";
             $stmt=$pdo->prepare($query);
-            $stmt->execute([$product, $quantity, $_SESSION['UserId']]);
+            $stmt->execute([$product, $quantity, $_SESSION['UserId']], $quantity);
             $success = "Product added to cart";
             echo "<script>alert('$success')</script>";
         }
